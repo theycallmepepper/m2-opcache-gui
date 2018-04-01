@@ -7,7 +7,7 @@
         <li class="item title" data-role="title">
             <a class="switch" data-toggle="switch" href="#config"><span>Config Directives</span></a>
         </li>
-        <?php if ($this->getChildHtml('scripts.list')): ?>
+        <?php if ($this->getChildHtml('scripts.list')) : ?>
             <li class="item title" data-role="title">
                 <a class="switch" data-toggle="switch" href="#scripts"><span>Scripts</span></a>
             </li>
@@ -19,7 +19,7 @@
     <div class="item content" id="config" data-role="content">
         <p><?php echo $this->getChildHtml('config'); ?></p>
     </div>
-    <?php if ($this->getChildHtml('scripts.list')): ?>
+    <?php if ($this->getChildHtml('scripts.list')) : ?>
         <div class="item content" id="scripts" data-role="content">
             <p><?php echo $this->getChildHtml('scripts.list'); ?></p>
         </div>

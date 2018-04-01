@@ -119,15 +119,12 @@ class Data extends AbstractHelper
     }
 
     /**
-     * @TODO - handle this more efficiently
      * @return mixed
      */
     public function getScripts()
     {
         return $this->getStatus()['scripts'];
     }
-
-    //@TODO - get_extension_funcs('Zend OPcache')
 
     /**
      * @return mixed

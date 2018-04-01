@@ -7,8 +7,7 @@
     </tr>
     </thead>
     <tbody>
-    <?php // @TODO - invalidate per file + enable table filtering
-    foreach ($this->getScripts() as $filename => $filedata) : ?>
+    <?php foreach ($this->getScripts() as $filename => $filedata) : ?>
         <tr>
             <td>
                 <?php echo $filename ?> <br/>

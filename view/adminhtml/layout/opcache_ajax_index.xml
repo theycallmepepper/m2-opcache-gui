@@ -1,18 +1,15 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © 2017 davidaaronyoung.com All rights reserved.
+ * Copyright © 2018 davidaaronyoung.com All rights reserved.
  * See LICENSE.txt for license details.
  */
 -->
-
 <layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
     <referenceContainer name="page.wrapper" remove="true"/>
     <referenceContainer name="after.body.start" remove="true"/>
-
     <container name="root">
-
         <block class="Magento\Framework\View\Element\Template" name="opcache.status"
                template="TCMP_OpCache::status.phtml" cacheable="false">
             <action method="setIsInstalled">
@@ -27,7 +24,6 @@
         </block>
         <block class="TCMP\OpCache\Block\Adminhtml\Gui" name="tcmp_opcache_block_gui"
                template="TCMP_OpCache::gui.phtml">
-
             <container htmlClass="sections" htmlTag="div" name="config">
                 <block class="Magento\Framework\View\Element\Template" name="opcache.config.directives"
                        template="TCMP_OpCache::dataTable.phtml">
@@ -41,7 +37,6 @@
                         <argument name="tableData" xsi:type="helper" helper="TCMP\OpCache\Helper\Data::getDirectives"/>
                     </action>
                 </block>
-
                 <block class="Magento\Framework\View\Element\Template" name="opcache.config.blacklist"
                        template="TCMP_OpCache::dataTable.phtml">
                     <action method="setTableTitle">
@@ -52,7 +47,6 @@
                     </action>
                 </block>
             </container>
-
             <container htmlClass="sections" htmlTag="div" name="memory.usage">
                 <container htmlTag="div" htmlClass="chart-wrapper" name="opcache.chart.wrapper">
                     <block class="Magento\Framework\View\Element\Template" name="opcache.status.memoryUsage.charts"
@@ -109,10 +103,9 @@
                     </block>
                 </container>
             </container>
-
             <container htmlClass="sections" htmlTag="div" name="scripts.list">
                 <block class="Magento\Framework\View\Element\Template" name="opcache.status.scripts"
-                       template="TCMP_OpCache::scripts.phtml">
+                       template="TCMP_OpCache::scripts.phtml" ifconfig="tcmp_opcache/settings/show_scripts">
                     <action method="setTableTitle">
                         <argument name="tableTitle" xsi:type="string">Scripts List</argument>
                     </action>

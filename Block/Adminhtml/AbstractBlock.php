@@ -30,10 +30,8 @@ abstract class AbstractBlock extends Template
         Context $context,
         array $data = []
     ) {
-        {
-            $this->helper = $helper;
-            parent::__construct($context, $data);
-        }
+        $this->helper = $helper;
+        parent::__construct($context, $data);
     }
 
     /**

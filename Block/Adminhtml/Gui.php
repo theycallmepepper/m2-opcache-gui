@@ -29,9 +29,7 @@ class Gui extends AbstractBlock
         Context $context,
         array $data = []
     ) {
-        {
-            $this->helper = $helper;
-            parent::__construct($helper, $context, $data);
-        }
+        $this->helper = $helper;
+        parent::__construct($helper, $context, $data);
     }
 }

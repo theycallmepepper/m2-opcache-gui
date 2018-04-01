@@ -60,7 +60,7 @@ class Index extends Action
         $result = $this->redirectFactory->create();
         try {
             $this->helper->resetOpCache();
-            $this->messageManager->addSuccessMessage(__('OPCache reset successfully'));
+            $this->messageManager->addSuccessMessage(__('OPcache reset successfully'));
             $result->setPath('opcache/index/index');
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
