@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 davidaaronyoung.com All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="tcmp" translate="label" sortOrder="450">
+            <label>TCMP Studio</label>
+        </tab>
+        <section id="tcmp_opcache" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="0"
+                 showInStore="0">
+            <class>separator-top</class>
+            <label>OPcache</label>
+            <tab>tcmp</tab>
+            <resource>TCMP_OpCache::settings</resource>
+            <group id="settings" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>General Settings</label>
+                <field id="show_in_menu" translate="label comment" type="select" sortOrder="0" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Show Reset Link In Menu</label>
+                    <comment>Enable OPcache quick reset link in menu.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_scripts" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Show Scripts List</label>
+                    <comment>Enable tab containing list of currently cached scripts (note list may be very large).</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

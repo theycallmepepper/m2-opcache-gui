@@ -1,0 +1,32 @@
+<table class="data-table" id="<?php echo str_replace(' ', '_', strtolower($this->getTableTitle())) ?>">
+    <thead>
+    <tr>
+        <th scope="col" colspan="2">
+            <?php echo __($this->getTableTitle()); ?>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->getTableData() as $key => $value) :
+        if ($value === false) {
+            $value = 'false';
+        } elseif ($value === true) {
+            $value = 'true';
+        } elseif ($value === null) {
+            $value = 'NULL';
+        }
+        ?>
+        <tr>
+            <?php if ($this->getShowManualLinks()) : ?>
+                <th scope="row">
+                    <a href="https://secure.php.net/manual/en/opcache.configuration.php#ini.<?php echo str_replace('_', '-', $key); ?>"
+                       target="_blank"><?php echo __($key); ?>
+                    </a></th>
+            <?php else : ?>
+                <th scope="row"><?php echo __($key); ?></th>
+            <?php endif; ?>
+            <td id="<?php echo $key ?>"><?php echo __($value); ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

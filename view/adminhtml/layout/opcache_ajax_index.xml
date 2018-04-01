@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 davidaaronyoung.com All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <referenceContainer name="page.wrapper" remove="true"/>
+    <referenceContainer name="after.body.start" remove="true"/>
+
+    <container name="root">
+
+        <block class="Magento\Framework\View\Element\Template" name="opcache.status"
+               template="TCMP_OpCache::status.phtml" cacheable="false">
+            <action method="setIsInstalled">
+                <argument name="isInstalled" xsi:type="helper" helper="TCMP\OpCache\Helper\Data::isInstalled"/>
+            </action>
+            <action method="setIsEnabled">
+                <argument name="isEnabled" xsi:type="helper" helper="TCMP\OpCache\Helper\Data::isEnabled"/>
+            </action>
+            <action method="setVersionString">
+                <argument name="versionString" xsi:type="helper" helper="TCMP\OpCache\Helper\Data::getVersionString"/>
+            </action>
+        </block>
+        <block class="TCMP\OpCache\Block\Adminhtml\Gui" name="tcmp_opcache_block_gui"
+               template="TCMP_OpCache::gui.phtml">
+
+            <container htmlClass="sections" htmlTag="div" name="config">
+                <block class="Magento\Framework\View\Element\Template" name="opcache.config.directives"
+                       template="TCMP_OpCache::dataTable.phtml">
+                    <action method="setShowManualLinks">
+                        <argument name="showManualLinks" xsi:type="boolean">true</argument>
+                    </action>
+                    <action method="setTableTitle">
+                        <argument name="tableTitle" xsi:type="string">Directives</argument>
+                    </action>
+                    <action method="setTableData">
+                        <argument name="tableData" xsi:type="helper" helper="TCMP\OpCache\Helper\Data::getDirectives"/>
+                    </action>
+                </block>
+
+                <block class="Magento\Framework\View\Element\Template" name="opcache.config.blacklist"
+                       template="TCMP_OpCache::dataTable.phtml">
+                    <action method="setTableTitle">
+                        <argument name="tableTitle" xsi:type="string">Blacklist</argument>
+                    </action>
+                    <action method="setTableData">
+                        <argument name="tableData" xsi:type="helper" helper="TCMP\OpCache\Helper\Data::getBlacklist"/>
+                    </action>
+                </block>
+            </container>
+
+            <container htmlClass="sections" htmlTag="div" name="memory.usage">
+                <container htmlTag="div" htmlClass="chart-wrapper" name="opcache.chart.wrapper">
+                    <block class="Magento\Framework\View\Element\Template" name="opcache.status.memoryUsage.charts"
+                           template="TCMP_OpCache::charts.phtml"/>
+                </container>
+                <container htmlClass="col-left" htmlTag="div" name="memory.usage.left">
+                    <block class="Magento\Framework\View\Element\Template" name="opcache.status.statistics.dataTable"
+                           template="TCMP_OpCache::dataTable.phtml">
+                        <action method="setTableTitle">
+                            <argument name="tableTitle" xsi:type="string">Statistics</argument>
+                        </action>
+                        <action method="setTableData">
+                            <argument name="tableData" xsi:type="helper"
+                                      helper="TCMP\OpCache\Helper\Data::getStatistics"/>
+                        </action>
+                    </block>
+                </container>
+                <container htmlClass="col-right" htmlTag="div" name="memory.usage.right">
+                    <block class="Magento\Framework\View\Element\Template" name="opcache.status.memoryUsage.dataTable"
+                           template="TCMP_OpCache::dataTable.phtml">
+                        <action method="setTableTitle">
+                            <argument name="tableTitle" xsi:type="string">Memory Usage</argument>
+                        </action>
+                        <action method="setTableData">
+                            <argument name="tableData" xsi:type="helper"
+                                      helper="TCMP\OpCache\Helper\Data::getMemoryUsage"/>
+                        </action>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Template" name="opcache.status.memoryUsage.info"
+                           template="TCMP_OpCache::memoryUsage.phtml">
+                        <action method="setIsCacheFull">
+                            <argument name="isCacheFull" xsi:type="helper"
+                                      helper="TCMP\OpCache\Helper\Data::getIsCacheFull"/>
+                        </action>
+                        <action method="setRestartPending">
+                            <argument name="restartPending" xsi:type="helper"
+                                      helper="TCMP\OpCache\Helper\Data::getRestartPending"/>
+                        </action>
+                        <action method="setRestartInProgress">
+                            <argument name="restartInProgress" xsi:type="helper"
+                                      helper="TCMP\OpCache\Helper\Data::getRestartInProgress"/>
+                        </action>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Template"
+                           name="opcache.status.internedStringsUsage.dataTable"
+                           template="TCMP_OpCache::dataTable.phtml">
+                        <action method="setTableTitle">
+                            <argument name="tableTitle" xsi:type="string">Interned Strings Usage</argument>
+                        </action>
+                        <action method="setTableData">
+                            <argument name="tableData" xsi:type="helper"
+                                      helper="TCMP\OpCache\Helper\Data::getInternedStringsUsage"/>
+                        </action>
+                    </block>
+                </container>
+            </container>
+
+            <container htmlClass="sections" htmlTag="div" name="scripts.list">
+                <block class="Magento\Framework\View\Element\Template" name="opcache.status.scripts"
+                       template="TCMP_OpCache::scripts.phtml">
+                    <action method="setTableTitle">
+                        <argument name="tableTitle" xsi:type="string">Scripts List</argument>
+                    </action>
+                    <action method="setScripts">
+                        <argument name="scripts" xsi:type="helper" helper="TCMP\OpCache\Helper\Data::getScripts"/>
+                    </action>
+                </block>
+            </container>
+        </block>
+    </container>
+</layout>

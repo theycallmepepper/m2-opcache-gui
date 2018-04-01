@@ -1,0 +1,31 @@
+<?php
+$_additionalData = [
+    'cache_full' => $this->getIsCacheFull(),
+    'restart_pending' => $this->getRestartPending(),
+    'restart_in_progress' => $this->getRestartInProgress(),
+]; ?>
+<table class="data-table">
+    <thead>
+    <tr>
+        <th scope="col" colspan="2">
+            <?php echo __('Additional Information'); ?>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($_additionalData as $key => $value):
+        if ($value === false) {
+            $value = 'false';
+        } elseif ($value === true) {
+            $value = 'true';
+        } elseif ($value === null) {
+            $value = 'NULL';
+        }
+        ?>
+        <tr>
+            <th scope="row"><?php echo __($key); ?></th>
+            <td><?php echo __($value); ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

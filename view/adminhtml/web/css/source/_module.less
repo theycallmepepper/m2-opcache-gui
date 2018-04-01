@@ -1,0 +1,74 @@
+.opcache-gui-wrapper {
+  .actions {
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  .status-message {
+    &-error {
+      .lib-message-icon-lateral(error, right);
+      padding-left: 3rem;
+    }
+    &-warning {
+      .lib-message-icon-lateral(warning, right);
+      padding-left: 3rem;
+    }
+    &-success {
+      .lib-message-icon-lateral(success, right);
+      padding-left: 3rem;
+    }
+  }
+  .chart-wrapper {
+    text-align: center;
+    .chart-block {
+      display: inline-block;
+      max-width: 49%;
+    }
+  }
+  .tabs-panel {
+    float: left;
+    min-width: 100%;
+    ul {
+      list-style-type: none;
+    }
+    .lib-data-tabs();
+
+    > .item.title {
+      > .switch {
+        height: 4rem;
+        padding-top: 10px;
+      }
+    }
+    .col-left,
+    .col-right {
+      float: left;
+      width: 50%;
+    }
+  }
+  .data-table {
+    .lib-table();
+    .lib-table-bordered();
+    .lib-table-striped(
+      @_stripped-background-color: #ccc,
+      @_stripped-color: #000,
+      @_stripped-direction: horizontal,
+      @_stripped-highlight: even
+    );
+    width: 100%;
+    text-align: left;
+    td, th {
+      width: 50%;
+    }
+    thead {
+      th {
+        text-align: center;
+      }
+    }
+    &.scripts {
+      tbody {
+        th {
+          max-width: 25%;
+        }
+      }
+    }
+  }
+}

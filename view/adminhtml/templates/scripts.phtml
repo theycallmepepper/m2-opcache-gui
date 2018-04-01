@@ -1,0 +1,28 @@
+<table class="data-table scro[ts">
+    <thead>
+    <tr>
+        <th scope="col" colspan="2">
+            <?php echo __($this->getTableTitle()); ?>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php // @TODO - invalidate per file + enable table filtering
+    foreach ($this->getScripts() as $filename => $filedata) : ?>
+        <tr>
+            <td>
+                <?php echo $filename ?> <br/>
+                <?php
+                foreach ($filedata as $name => $value) :
+                    if ($name === 'full_path') {
+                        continue;
+                    }
+                    echo "<b>" . $name . ":</b>&nbsp;" . $value . "&nbsp;";
+                endforeach;
+                ?>
+            </td>
+
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

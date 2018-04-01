@@ -1,0 +1,36 @@
+<?php /** @var \TCMP\OpCache\Block\Adminhtml\Gui $block */ ?>
+<div class="tabs-panel" id="horizontal_tabs">
+    <ul class="tabs-panel">
+        <li class="item title" data-role="title">
+            <a class="switch" data-toggle="switch" href="#memory-usage"><span>Memory Usage</span></a>
+        </li>
+        <li class="item title" data-role="title">
+            <a class="switch" data-toggle="switch" href="#config"><span>Config Directives</span></a>
+        </li>
+        <?php if ($this->getChildHtml('scripts.list')): ?>
+            <li class="item title" data-role="title">
+                <a class="switch" data-toggle="switch" href="#scripts"><span>Scripts</span></a>
+            </li>
+        <?php endif; ?>
+    </ul>
+    <div class="item content" id="memory-usage" data-role="content">
+        <p><?php echo $this->getChildHtml('memory.usage'); ?></p>
+    </div>
+    <div class="item content" id="config" data-role="content">
+        <p><?php echo $this->getChildHtml('config'); ?></p>
+    </div>
+    <?php if ($this->getChildHtml('scripts.list')): ?>
+        <div class="item content" id="scripts" data-role="content">
+            <p><?php echo $this->getChildHtml('scripts.list'); ?></p>
+        </div>
+    <?php endif; ?>
+</div>
+<script type="text/javascript">
+    require([
+            'jquery',
+            'jquery/ui'
+        ],
+        function ($) {
+            $("#horizontal_tabs").tabs();
+        });
+</script>

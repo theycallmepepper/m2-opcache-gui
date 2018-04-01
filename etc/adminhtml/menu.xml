@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 davidaaronyoung.com All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="TCMP_OpCache::config" resource="TCMP_OpCache::config" title="OPcache Management"
+             action="opcache/index/index" module="TCMP_OpCache" sortOrder="10" parent="Magento_Backend::system_tools"
+             dependsOnModule="Magento_Backend"/>
+        <add id="TCMP_OpCache::configreset" resource="TCMP_OpCache::config" title="OPcache Reset"
+             action="opcache/reset/index" module="TCMP_OpCache" sortOrder="12" parent="Magento_Backend::system_tools"
+             dependsOnModule="Magento_Backend" dependsOnConfig="tcmp_opcache/settings/show_in_menu"/>
+    </menu>
+</config>

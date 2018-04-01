@@ -1,0 +1,85 @@
+<div class="chart-block">
+    <canvas id="memoryUsageChart" width="250" height="250"></canvas>
+</div>
+
+<div class="chart-block">
+    <canvas id="hitrateChart" width="250" height="250"></canvas>
+</div>
+
+<script type="text/javascript">
+    require([
+            'jquery',
+            'TCMP_OpCache/js/Chart.bundle.min'
+        ],
+        function ($, Chart) {
+            var ctx = document.getElementById("memoryUsageChart");
+            memoryUsageOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Memory Usage'
+                }
+            };
+            var usedmem = $('#used_memory').html();
+            var freemem = $('#free_memory').html();
+            var wastedmem = $('#wasted_memory').html();
+            memoryUsageData = {
+                datasets: [{
+                    data: [
+                        usedmem,
+                        freemem,
+                        wastedmem
+                    ],
+                    backgroundColor: [
+                        "rgb(54, 162, 235)",
+                        "rgb(255, 205, 86)",
+                        "rgb(255, 99, 132)"
+                    ]
+                }],
+                labels: [
+                    'Used',
+                    'Free',
+                    'Wasted'
+                ]
+            };
+            var memoryUsageChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: memoryUsageData,
+                options: memoryUsageOptions
+            });
+
+            var ctx2 = document.getElementById("hitrateChart");
+            hitRateOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                title: {
+                    display: true,
+                    text: 'Hit Rate'
+                }
+            };
+            var hitrate = $('#hits').html();
+            var misses = $('#misses').html();
+            hitrateData = {
+                datasets: [{
+                    data: [
+                        hitrate,
+                        misses
+                    ],
+                    backgroundColor: [
+                        "rgb(54, 162, 235)",
+                        "rgb(255, 205, 86)"
+                    ]
+                }],
+                labels: [
+                    'Hits',
+                    'Misses'
+                ]
+            };
+            var hitRateOptions = new Chart(ctx2, {
+                type: 'doughnut',
+                data: hitrateData,
+                options: hitRateOptions
+            });
+        });
+</script>

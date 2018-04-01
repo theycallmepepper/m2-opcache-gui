@@ -1,0 +1,35 @@
+{
+    "name": "tcmp/opcache",
+    "description": "",
+    "require": {
+        "php": "~5.6|~7.0|~7.1"
+    },
+    "suggest": {
+    },
+    "type": "magento2-module",
+    "version": "0.0.2",
+    "license": [
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "TCMP\\OpCache\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "David Young",
+            "email": "davidaaronyoung@gmail.com",
+            "homepage": "https://www.davidaaronyoung.com",
+            "role": "Developer"
+        },
+        {
+            "name": "TCMP Studio",
+            "email": "support@tcmp.studio",
+            "homepage": "https://tcmp.studio",
+            "role": "Developer"
+        }
+    ]
+}

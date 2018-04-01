@@ -1,0 +1,22 @@
+<?php if (!$this->getIsInstalled()): ?>
+    <div class="status-message-error">
+        <div>
+            OPCache appears to not be installed.
+        </div>
+    </div>
+<?php
+endif;
+if (!$this->getIsEnabled()): ?>
+    <div class="status-message-warning">
+        <div>
+            OPCache appears to be disabled.
+        </div>
+    </div>
+<?php endif;
+if ($this->getIsInstalled() && $this->getIsEnabled()): ?>
+    <div class="status-message-success">
+        <div>
+            <?php echo $this->getVersionString(); ?> | PHP Version <?php echo phpversion(); ?>
+        </div>
+    </div>
+<?php endif;
