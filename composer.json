@@ -1,13 +1,19 @@
 {
     "name": "tcmp/opcache",
-    "description": "",
+    "description": "OPcache GUI for Magento 2.x Admin Panel",
     "require": {
         "php": "~5.6|~7.0|~7.1"
     },
     "suggest": {
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/theycallmepepper/m2-opcache-gui.git"
+        }
+    ],
     "type": "magento2-module",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "license": [
     ],
     "autoload": {
