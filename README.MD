@@ -1,8 +1,9 @@
 # Magento 2 OPcache GUI
-An admin GUI for monitoring OPCache performance and resetting the cache.  This extension adds a link in the admin panel at System > Tools > OPcache Managent.  Optional link can be activated for quick reset and cached scripts can also be viewed in a list format, see Settings > TCMP > OPcache to enable either.
+An admin GUI for monitoring OPCache performance and resetting the cache.  This extension adds a link in the admin panel at `System > Tools > OPcache Managent`.  Optional link can be activated for quick reset and cached scripts can also be viewed in a list format, see `Settings > TCMP > OPcache` to enable either.
 
 ## Installation
 - composer require tcmp/opcache
+    - Alternatively you can copy the extension files to `app/code/TCMP/OpCache`
 - php bin/magento module:enable TCMP_OpCache
 - php bin/magento setup:updgrade
 - php bin/magento setup:static-content:deploy

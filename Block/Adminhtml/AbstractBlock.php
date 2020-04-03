@@ -43,6 +43,6 @@ abstract class AbstractBlock extends Template
         if ($this->helper->isEnabled() && $this->helper->isInstalled()) {
             return parent::_toHtml();
         }
-        return '';
+        return __('OpCache is not installed or properly enabled.');
     }
 }
