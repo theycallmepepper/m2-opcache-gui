@@ -9,16 +9,18 @@
 <script type="text/javascript">
     require([
             'jquery',
-            'TCMP_OpCache/js/Chart.bundle.min'
+            'TCMP_OpCache/js/chart.umd.min'
         ],
         function ($, Chart) {
             var ctx = document.getElementById("memoryUsageChart");
             memoryUsageOptions = {
                 responsive: true,
                 maintainAspectRatio: false,
-                title: {
-                    display: true,
-                    text: 'Memory Usage'
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Memory Usage'
+                    }
                 }
             };
             var usedmem = $('#used_memory').html();
@@ -53,9 +55,11 @@
             hitRateOptions = {
                 responsive: true,
                 maintainAspectRatio: false,
-                title: {
-                    display: true,
-                    text: 'Hit Rate'
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Hit Rate'
+                    }
                 }
             };
             var hitrate = $('#hits').html();

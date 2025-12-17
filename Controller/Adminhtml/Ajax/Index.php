@@ -1,13 +1,16 @@
 <?php
+declare(strict_types=1);
 
 namespace TCMP\OpCache\Controller\Adminhtml\Ajax;
 
 use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\View\Result\LayoutFactory;
 
 /**
  * Class Index
  *
- * @package TCMP\OpCache\Controller\Adminhtml\Index
+ * @package TCMP\OpCache\Controller\Adminhtml\Ajax
  */
 class Index extends Action
 {
@@ -24,29 +27,21 @@ class Index extends Action
      * Index constructor.
      *
      * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Framework\View\Result\LayoutFactory $resultPageFactory
+     * @param \Magento\Framework\View\Result\LayoutFactory $resultLayoutFactory
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\View\Result\LayoutFactory $resultLayoutFactory
+        Context $context,
+        LayoutFactory $resultLayoutFactory
     ) {
         $this->resultLayoutFactory = $resultLayoutFactory;
         parent::__construct($context);
     }
 
     /**
-     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|\Magento\Framework\View\Result\Page
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|\Magento\Framework\View\Result\Layout
      */
     public function execute()
     {
         return $this->resultLayoutFactory->create();
-    }
-
-    /**
-     * @return bool
-     */
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed(self::ADMIN_RESOURCE);
     }
 }

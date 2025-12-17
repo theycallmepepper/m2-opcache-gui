@@ -1,8 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace TCMP\OpCache\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Framework\App\Helper\Context;
 
 /**
  * Class Data
@@ -12,11 +14,23 @@ use Magento\Framework\App\Helper\AbstractHelper;
 class Data extends AbstractHelper
 {
     /**
+     * Data constructor.
+     *
+     * @param Context $context
+     */
+    public function __construct(
+        Context $context
+    ) {
+        parent::__construct($context);
+    }
+
+    /**
      * Opcache Config
      *
      * @var $config
      */
     private $config;
+
     /**
      * OPCache Status
      *

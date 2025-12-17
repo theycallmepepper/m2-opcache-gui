@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © 2020 davidaaronyoung.com All rights reserved.
+ * Copyright © 2025 davidaaronyoung.com All rights reserved.
  * See LICENSE.txt for license details.
  */
 -->
@@ -10,7 +10,13 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="TCMP_OpCache::config" title="OpCache Config"/>
+                <resource id="Magento_Backend::system">
+                    <resource id="Magento_Backend::tools">
+                        <resource id="Magento_Backend::cache">
+                            <resource id="TCMP_OpCache::config" title="OpCache Config"/>
+                        </resource>
+                    </resource>
+                </resource>
             </resource>
         </resources>
     </acl>

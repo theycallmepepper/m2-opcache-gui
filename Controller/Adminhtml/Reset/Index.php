@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace TCMP\OpCache\Controller\Adminhtml\Reset;
 
@@ -11,7 +12,7 @@ use TCMP\OpCache\Helper\Data as OpCacheHelper;
 /**
  * Class Index
  *
- * @package TCMP\OpCache\Controller\Adminhtml\Result
+ * @package TCMP\OpCache\Controller\Adminhtml\Reset
  */
 class Index extends Action
 {
@@ -67,13 +68,5 @@ class Index extends Action
             $this->messageManager->addExceptionMessage($e);
         }
         return $result;
-    }
-
-    /**
-     * @return bool
-     */
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed(self::ADMIN_RESOURCE);
     }
 }

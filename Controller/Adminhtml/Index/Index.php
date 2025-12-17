@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace TCMP\OpCache\Controller\Adminhtml\Index;
 
@@ -44,13 +45,5 @@ class Index extends Action
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend(__('TCMP / OPcache GUI'));
         return $resultPage;
-    }
-
-    /**
-     * @return bool
-     */
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed(self::ADMIN_RESOURCE);
     }
 }

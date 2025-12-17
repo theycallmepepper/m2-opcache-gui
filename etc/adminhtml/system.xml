@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © 2020 davidaaronyoung.com All rights reserved.
+ * Copyright © 2025 davidaaronyoung.com All rights reserved.
  * See LICENSE.txt for license details.
  */
 -->
@@ -16,7 +16,7 @@
             <class>separator-top</class>
             <label>OPcache</label>
             <tab>tcmp</tab>
-            <resource>TCMP_OpCache::settings</resource>
+            <resource>TCMP_OpCache::config</resource>
             <group id="settings" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="0"
                    showInStore="0">
                 <label>General Settings</label>
